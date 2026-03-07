@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astürk Games</title>
+    <style>
+        /* Genel Tasarım Ayarları */
+        html {
+            scroll-behavior: smooth; /* Sayfanın yumuşak kaymasını sağlar */
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Üst Menü (Header) */
+        header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #e94560;
+        }
+        .about-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid #e94560;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .about-btn:hover {
+            background-color: #e94560;
+        }
+
+        /* Ana İçerik */
+        main {
+            padding: 3rem 2rem;
+            text-align: center;
+            min-height: 60vh; /* Sayfa içeriği az olsa bile Hakkımızda kısmını aşağıda tutar */
+        }
+        h1 {
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Oyun Kartları Konteyneri */
+        .games-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        /* Tekil Oyun Kartı */
+        .game-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Oyun Görseli (Tıklanabilir) */
+        .game-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            background-color: #e0e0e0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .game-image:hover {
+            opacity: 0.8;
+        }
+
+        .game-title {
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+            color: #1a1a2e;
+        }
+
+        /* Tıklayınca Açılan Link/Metin Alanı */
+        .game-info {
+            display: none;
+            margin-top: 1rem;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .game-info.active {
+            display: block;
+        }
+
+        /* Buton Stilleri */
+        .play-link {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .play-link:hover {
+            background-color: #45a049;
+        }
+        .coming-soon {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* Hakkımızda / Footer Bölümü */
+        .about-section {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .about-section h2 {
+            color: #e94560;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d1e0;
+        }
+        .about-text strong {
+            color: #fff;
+        }
+
+        /* Animasyon */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ASTÜRK GAMES</div>
+        <button class="about-btn" onclick="scrollToAbout()">Hakkımızda</button>
+    </header>
+
+    <main>
+        <h1>Oyunlarımız</h1>
+        <p>Bağlantıları görmek için oyun görsellerine tıklayın!</p>
+        
+        <div class="games-container">
+            <div class="game-card">
+                <img src="Keko.png" alt="Keko Bird" class="game-image" onclick="toggleInfo('keko-info')">
+                <h2 class="game-title">Keko Bird</h2>
+                <div id="keko-info" class="game-info">
+                    <a href="https://play.google.com/store/apps/details?id=com.keko.bird&pcampaignid=web_share" target="_blank" class="play-link">Google Play'de İndir</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="Flow.png" alt="Flow Arrows" class="game-image" onclick="toggleInfo('flow-info')">
+                <h2 class="game-title">Flow Arrows</h2>
+                <div id="flow-info" class="game-info">
+                    <span class="coming-soon">Yakında!</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="about" class="about-section">
+        <h2>Hakkımızda</h2>
+        <div class="about-text">
+            <p><strong>Astürk Games</strong>, 11 Aralık 2025 tarihinde <strong>Yusuf Ayan</strong> tarafından kurulmuştur.</p>
+            <p>Mobil oyun dünyasına keyifli bir soluk getirme vizyonuyla yola çıkan stüdyomuz; oyunculara eğlenceli, akıcı ve yenilikçi deneyimler sunan gündelik (casual) bağımsız (indie) oyunlar geliştirmeye odaklanan yaratıcı bir oyun firmasıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Oyun linklerini açıp kapatan fonksiyon
+        function toggleInfo(id) {
+            var element = document.getElementById(id);
+            if (element.classList.contains('active')) {
+                element.classList.remove('active');
+            } else {
+                element.classList.add('active');
+            }
+        }
+
+        // Hakkımızda kısmına kaydıran fonksiyon
+        function scrollToAbout() {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
