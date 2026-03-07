@@ -11,35 +11,47 @@
     <style>
         /* Genel Tasarım Ayarları */
         html {
-            scroll-behavior: smooth; /* Sayfanın yumuşak kaymasını sağlar */
+            scroll-behavior: smooth;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('arka.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Resim sabit kalır */
+            color: #ffffff;
         }
 
         /* Üst Menü (Header) */
         header {
-            background-color: #1a1a2e;
+            background-color: rgba(10, 15, 45, 0.75); 
+            backdrop-filter: blur(5px);
             color: white;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
             letter-spacing: 2px;
-            color: #e94560;
+            color: #ffffff;
         }
-        .about-btn {
+        
+        /* Menü Butonları Alanı */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .nav-btn {
             background-color: transparent;
             color: white;
-            border: 2px solid #e94560;
+            border: 2px solid #ffffff;
             padding: 0.5rem 1.5rem;
             border-radius: 20px;
             cursor: pointer;
@@ -47,18 +59,19 @@
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        .about-btn:hover {
-            background-color: #e94560;
+        .nav-btn:hover {
+            background-color: #ffffff;
+            color: #1a1a2e;
         }
 
         /* Ana İçerik */
         main {
             padding: 3rem 2rem;
             text-align: center;
-            min-height: 60vh; /* Sayfa içeriği az olsa bile Hakkımızda kısmını aşağıda tutar */
+            min-height: 60vh;
         }
         h1 {
-            color: #1a1a2e;
+            color: #ffffff;
             margin-bottom: 0.5rem;
         }
 
@@ -71,18 +84,21 @@
             margin-top: 3rem;
         }
 
-        /* Tekil Oyun Kartı */
+        /* Tekil Oyun Kartı (Şeffaf Beyaz Cam Efekti) */
         .game-card {
-            background: white;
+            background-color: rgba(255, 255, 255, 0.15); /* Şeffaf beyaz */
+            backdrop-filter: blur(8px); /* Cam bulanıklığı */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* İnce dış çerçeve */
             padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
             width: 280px;
             text-align: center;
             transition: transform 0.3s ease;
         }
         .game-card:hover {
             transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.25); /* Tıklanırken hafif aydınlanır */
         }
 
         /* Oyun Görseli (Tıklanabilir) */
@@ -93,7 +109,7 @@
             border-radius: 10px;
             cursor: pointer;
             transition: opacity 0.2s;
-            background-color: #e0e0e0;
+            background-color: rgba(0, 0, 0, 0.2);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .game-image:hover {
@@ -103,7 +119,8 @@
         .game-title {
             margin: 1.5rem 0 1rem;
             font-size: 1.4rem;
-            color: #1a1a2e;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Yazı net okunsun diye gölge */
         }
 
         /* Tıklayınca Açılan Link/Metin Alanı */
@@ -141,14 +158,16 @@
 
         /* Hakkımızda / Footer Bölümü */
         .about-section {
-            background-color: #1a1a2e;
+            background-color: rgba(150, 20, 20, 0.8);
+            backdrop-filter: blur(5px);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
             margin-top: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         .about-section h2 {
-            color: #e94560;
+            color: #ffffff;
             font-size: 2rem;
             margin-bottom: 1.5rem;
         }
@@ -157,10 +176,43 @@
             margin: 0 auto;
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #d1d1e0;
+            color: #ffffff;
         }
         .about-text strong {
-            color: #fff;
+            color: #ffcccc;
+        }
+
+        /* İletişim Kısmı */
+        .contact-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            background-color: white;
+            color: #c0392b; /* Üzerine gelince metin kırmızı olur */
+            transform: translateY(-3px);
         }
 
         /* Animasyon */
@@ -174,7 +226,10 @@
 
     <header>
         <div class="logo">ASTÜRK GAMES</div>
-        <button class="about-btn" onclick="scrollToAbout()">Hakkımızda</button>
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="scrollToContact()">İletişim</button>
+            <button class="nav-btn" onclick="scrollToAbout()">Hakkımızda</button>
+        </div>
     </header>
 
     <main>
@@ -206,10 +261,18 @@
             <p><strong>Astürk Games</strong>, 11 Aralık 2025 tarihinde <strong>Yusuf Ayan</strong> tarafından kurulmuştur.</p>
             <p>Mobil oyun dünyasına keyifli bir soluk getirme vizyonuyla yola çıkan stüdyomuz; oyunculara eğlenceli, akıcı ve yenilikçi deneyimler sunan gündelik (casual) bağımsız (indie) oyunlar geliştirmeye odaklanan yaratıcı bir oyun firmasıdır.</p>
         </div>
+        
+        <div id="contact" class="contact-info">
+            <h2>İletişim</h2>
+            <p>Gelişmelerden haberdar olmak ve bizimle iletişime geçmek için sosyal medya hesaplarımızı takip edebilirsiniz:</p>
+            <div class="social-links">
+                <a href="https://x.com/Asturk_games" target="_blank" class="social-btn">Twitter (X)</a>
+                <a href="https://www.instagram.com/asturk_games/" target="_blank" class="social-btn">Instagram</a>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Oyun linklerini açıp kapatan fonksiyon
         function toggleInfo(id) {
             var element = document.getElementById(id);
             if (element.classList.contains('active')) {
@@ -219,9 +282,13 @@
             }
         }
 
-        // Hakkımızda kısmına kaydıran fonksiyon
         function scrollToAbout() {
             document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // YENİ: İletişim kısmına kaydıran fonksiyon
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 
