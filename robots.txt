@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yusufayan58.github.io/ast-rkgames/sitemap.xml
