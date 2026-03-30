@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Astürk Games | Haberler</title>
+    <link rel="icon" type="image/png" href="../favicon.png"> 
+    
+    <style>
+        /* Genel Tasarım Ayarları */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* DİKKAT: Resim bir üst klasörde olduğu için ../arka.png yaptık */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../arka.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            color: #ffffff;
+        }
+
+        /* Üst Menü (Header) */
+        header {
+            background-color: rgba(10, 15, 45, 0.75); 
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+        
+        /* Menü Butonları Alanı */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid #ffffff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .nav-btn:hover {
+            background-color: #ffffff;
+            color: #1a1a2e;
+        }
+
+        /* Ana İçerik */
+        main {
+            padding: 3rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Haber Kutusu Tasarımı (Senin Cam Efekti Tarzında) */
+        .news-box {
+            background-color: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(8px); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: left; /* Yazılar soldan hizalı olsun */
+        }
+        
+        .news-date {
+            color: #ffcccc;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .news-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Footer Bölümü */
+        .about-section {
+            background-color: rgba(150, 20, 20, 0.8);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* İletişim Kısmı */
+        .contact-info {
+            margin-top: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            background-color: white;
+            color: #c0392b; 
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ASTÜRK GAMES</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.location.href='../index.html'">Ana Sayfa</button>
+        </div>
+    </header>
+
+    <main>
+        <h1>Astürk Games'ten Son Haberler</h1>
+        <p>Yakında çıkacak oyunlarımız ve güncellemeler burada olacak!</p>
+        
+        <div class="news-box">
+            <h2>Haberler Sayfamız Açıldı!</h2>
+            <span class="news-date">30 Mart 2026</span>
+            <div class="news-content">
+                <p>Merhaba Astürk Games takipçileri! Web sitemize yepyeni bir haberler bölümü ekledik. Bundan sonra geliştirdiğimiz oyunlar, yeni projeler ve stüdyomuzla ilgili tüm güncellemeleri buradan paylaşacağız.</p>
+                <p>Bizi takip etmeye devam edin!</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="about-section">
+        <div class="contact-info">
+            <h2>İletişim</h2>
+            <p>Gelişmelerden haberdar olmak ve bizimle iletişime geçmek için sosyal medya hesaplarımızı takip edebilirsiniz:</p>
+            <div class="social-links">
+                <a href="https://x.com/Asturk_games" target="_blank" class="social-btn">Twitter (X)</a>
+                <a href="https://www.instagram.com/asturk_games/" target="_blank" class="social-btn">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
